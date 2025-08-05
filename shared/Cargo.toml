@@ -1,0 +1,17 @@
+[package]
+name = "lib"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+twofish = "0.7"
+cbc = "0.1"
+cipher = "0.4"
+hex = "0.4"
+tiger = "0.2"
+digest = "0.10"
+blake3 = "1"
+rand = "0.8"
