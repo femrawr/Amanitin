@@ -10,3 +10,10 @@ pub fn gen_str(len: usize) -> String {
         .map(char::from)
         .collect()
 }
+
+pub fn clean_str(str: &str) -> String {
+    str
+        .chars()
+        .filter(|&c| c != '�')
+        .collect()
+}
