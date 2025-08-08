@@ -1,0 +1,29 @@
+[package]
+name = "encryptor"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = 2
+lto = "fat"
+codegen-units = 1
+debug = false
+strip = "symbols"
+panic = "abort"
+
+[dependencies]
+rayon = "1.8"
+regex = "1"
+globset = "0.4"
+winreg = "0.11"
+lib = { path = "../shared" }
+windows = { version = "0.52", features = [
+    "Win32_Foundation",
+    "Win32_Security", 
+    "Win32_System_Threading",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_Storage_FileSystem",
+    "Win32_UI_Shell_PropertiesSystem",
+    "Win32_System_Com",
+    "Win32_System_WindowsProgramming"
+]}

